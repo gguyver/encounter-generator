@@ -10,7 +10,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".EncounterDisplayActivity"
+            android:label="@string/title_activity_encounter_display"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.encounter_generator.MainActivity" />
+        </activity>
+        <activity
             android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_encounter_parameters"
+            android:parentActivityName=".EncounterParametersActivity"
+            android:theme="@style/FullscreenTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.encounter_generator.EncounterParametersActivity" />
+        </activity>
+        <activity
+            android:name=".EncounterParametersActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
