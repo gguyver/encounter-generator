@@ -8,19 +8,22 @@
     tools:context=".EncounterParametersActivity" >
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar6"
-        android:layout_width="409dp"
+        android:id="@+id/ParameterToolbar"
+        android:layout_width="410dp"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        tools:layout_editor_absoluteX="1dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/GenerateEncounterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="179dp"
+        android:layout_height="49dp"
         android:layout_marginStart="115dp"
+        android:layout_marginTop="106dp"
         android:layout_marginEnd="115dp"
         android:layout_marginBottom="168dp"
         android:background="@color/colorPrimary"
@@ -28,98 +31,114 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EncounterSizeSpinner" />
 
     <Spinner
         android:id="@+id/PartySizeSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
         android:entries="@array/average_level_array"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        tools:layout_editor_absoluteY="124dp" />
+        app:layout_constraintTop_toBottomOf="@+id/ParameterToolbar" />
 
     <Spinner
         android:id="@+id/PartyLevelSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="47dp"
         android:entries="@array/average_level_array"
         app:layout_constraintStart_toEndOf="@+id/AverageLevelText"
-        tools:layout_editor_absoluteY="195dp" />
+        app:layout_constraintTop_toBottomOf="@+id/PartySizeSpinner" />
 
     <Spinner
         android:id="@+id/DifficultySpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="47dp"
         android:entries="@array/encounter_challenge_array"
         app:layout_constraintStart_toEndOf="@+id/Encounter DifficultyText"
-        tools:layout_editor_absoluteY="266dp" />
+        app:layout_constraintTop_toBottomOf="@+id/PartyLevelSpinner" />
 
     <Spinner
         android:id="@+id/EncounterSizeSpinner"
         android:layout_width="82dp"
         android:layout_height="32dp"
         android:layout_marginStart="130dp"
+        android:layout_marginTop="20dp"
         android:entries="@array/average_level_array"
         app:layout_constraintEnd_toStartOf="@+id/EncounterSizeCheckBox"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="377dp" />
+        app:layout_constraintTop_toBottomOf="@+id/encounter DifficultyText" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="212dp"
         android:layout_height="23dp"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="69dp"
         android:text="Party Size"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="125dp" />
+        app:layout_constraintTop_toBottomOf="@+id/ParameterToolbar" />
 
     <TextView
         android:id="@+id/AverageLevelText"
         android:layout_width="212dp"
         android:layout_height="23dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="48dp"
         android:text="Average Party Level"
         android:textAlignment="center"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="32dp" />
+        app:layout_constraintBottom_toTopOf="@+id/Encounter DifficultyText"
+        app:layout_constraintEnd_toStartOf="@+id/PartyLevelSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/Encounter DifficultyText"
         android:layout_width="212dp"
         android:layout_height="23dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
         android:text="Encounter Difficulty"
         android:textAlignment="center"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/AverageLevelText"
-        tools:layout_editor_absoluteX="32dp" />
+        app:layout_constraintEnd_toStartOf="@+id/DifficultySpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AverageLevelText" />
 
     <TextView
         android:id="@+id/encounter DifficultyText"
         android:layout_width="212dp"
         android:layout_height="23dp"
         android:layout_marginStart="100dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="100dp"
         android:text="Desired Encounter Size"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="334dp" />
+        app:layout_constraintTop_toBottomOf="@+id/DifficultySpinner" />
 
     <CheckBox
         android:id="@+id/EncounterSizeCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="130dp"
         android:text="Fixed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/EncounterSizeSpinner"
-        tools:layout_editor_absoluteY="377dp" />
+        app:layout_constraintTop_toBottomOf="@+id/encounter DifficultyText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,7 @@
         android:id="@+id/fullscreen_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:drawable/alert_dark_frame"
         android:gravity="center"
         android:keepScreenOn="true"
         android:text="@string/dummy_content"
@@ -41,9 +42,9 @@
             tools:ignore="UselessParent">
 
             <Button
-                android:id="@+id/Build Encounter"
+                android:id="@+id/BuildEncounterButton"
                 style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="0dp"
+                android:layout_width="10dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
@@ -53,18 +54,17 @@
                 android:layout_marginBottom="32dp"
                 android:layout_weight="1"
                 android:backgroundTint="#FF9800"
+                android:onClick="buildEncounter"
                 android:text="@string/go_to_build_encounter" />
 
             <Button
-                android:id="@+id/build Encounter"
+                android:id="@+id/FeelingLuckyButton"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
                 android:layout_marginBottom="32dp"
                 android:layout_weight="1"
                 android:backgroundTint="#FF9800"

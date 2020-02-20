@@ -1,11 +1,13 @@
 package com.example.encounter_generator
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.core.app.NavUtils
 import android.view.MenuItem
+import com.example.encounter_generator.database.MonsterRoomDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -13,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
  * status bar and navigation/system bar) with user interaction.
  */
 class MainActivity : AppCompatActivity() {
+
     private val mHideHandler = Handler()
     private val mHidePart2Runnable = Runnable {
         // Delayed removal of status and navigation bar
@@ -55,13 +58,15 @@ class MainActivity : AppCompatActivity() {
 
         mVisible = true
 
+        val database = MonsterRoomDatabase.getDatabase(this)
+
         // Set up the user interaction to manually show or hide the system UI.
         fullscreen_content.setOnClickListener { toggle() }
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        `@+id/Build Encounter`@.setOnTouchListener(mDelayHideTouchListener)
+        @+id/BuildEncounterButton.setOnTouchListener(mDelayHideTouchListener)
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
@@ -121,6 +126,11 @@ class MainActivity : AppCompatActivity() {
     private fun delayedHide(delayMillis: Int) {
         mHideHandler.removeCallbacks(mHideRunnable)
         mHideHandler.postDelayed(mHideRunnable, delayMillis.toLong())
+    }
+
+    fun buildEncounter(view : View) {
+        val intent = Intent(this, EncounterParametersActivity::class.java)
+        startActivity(intent)
     }
 
     companion object {
