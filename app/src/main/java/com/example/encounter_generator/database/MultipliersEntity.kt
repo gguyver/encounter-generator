@@ -4,10 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "encounter_multipliers")
-data class Multipliers (@ColumnInfo(name = "minimum_encounter_size") val minSize: Int,
-                        @ColumnInfo(name = "maximum_encounter_size") val maxSize: Int,
-                        @ColumnInfo(name = "encounter_multiplier") val multiplier: Double) {
-    @PrimaryKey(autoGenerate = true)
-    var uid: Int = 0
-}
+@Entity(tableName = "multipliers")
+data class Multipliers (@ColumnInfo(name = "multiplier") val multiplier: Double?,
+                        @PrimaryKey @ColumnInfo(name = "id") val id : Int,
+                        @ColumnInfo(name = "maxMonsters") val maxSize: Int?,
+                        @ColumnInfo(name = "minMonsters") val minSize: Int?)

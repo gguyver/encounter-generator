@@ -4,11 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "threshold_by_level")
-data class Threshold (@ColumnInfo(name = "level") val level : Int,
-                      @ColumnInfo(name = "encounter_difficulty") val difficulty : String,
-                      @ColumnInfo(name = "experience_threshold") val XP : Int) {
-    @PrimaryKey(autoGenerate = true)
-    var uid : Int = 0
-
-}
+@Entity(tableName = "thresholds")
+data class Threshold (@PrimaryKey @ColumnInfo(name = "id") val id : Int,
+                      @ColumnInfo(name = "level") val level : Int,
+                      @ColumnInfo(name = "difficulty") val difficulty : String,
+                      @ColumnInfo(name = "XP") val XP : Int)

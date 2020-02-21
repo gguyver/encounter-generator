@@ -5,6 +5,6 @@ import androidx.room.Query
 
 @Dao
 interface XPbyCRDAO {
-    @Query("SELECT experience FROM xp_by_cr WHERE challenge_rating = :challengeRating")
+    @Query("SELECT XP FROM challenge_ratings WHERE challenge == :challengeRating")
     fun getXPfromCR(challengeRating : String) : Int
 }

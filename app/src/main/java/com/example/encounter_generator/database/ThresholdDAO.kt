@@ -5,6 +5,6 @@ import androidx.room.Query
 
 @Dao
 interface ThresholdDAO {
-    @Query("SELECT experience_threshold from threshold_by_level WHERE level = :InputLevel AND encounter_difficulty = :InputDifficulty")
+    @Query("SELECT XP from thresholds WHERE level = :InputLevel AND difficulty = :InputDifficulty")
     fun getThresholdXP(InputLevel: Int, InputDifficulty: String) : Int
 }

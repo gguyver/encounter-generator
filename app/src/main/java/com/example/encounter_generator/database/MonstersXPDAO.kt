@@ -5,12 +5,12 @@ import androidx.room.Query
 
 @Dao
 interface MonstersXPDAO {
-    @Query("SELECT monster_name FROM monster_xp WHERE experience <= :XP")
+    @Query("SELECT name FROM monsters WHERE XP <= :XP")
     fun getMonstersUnderXPAmount(XP : Int) : List<String>
 
-    @Query("SELECT monster_name FROM monster_xp WHERE experience >= :minXP AND experience <= :maxXP")
+    @Query("SELECT name FROM monsters WHERE XP >= :minXP AND XP <= :maxXP")
     fun getMonstersBetweenXPAmounts(minXP : Int, maxXP : Int) : List<String>
 
-    @Query("SELECT experience FROM monster_xp WHERE monster_name == :name")
+    @Query("SELECT XP FROM monsters WHERE name == :name")
     fun getXPforMonster(name : String) : Int
 }

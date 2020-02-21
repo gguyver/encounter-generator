@@ -4,9 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "xp_by_cr")
-data class XPbyCR(@ColumnInfo(name = "experience") val XP : Int,
-                  @ColumnInfo(name = "challenge_rating") val CR : String) {
-    @PrimaryKey(autoGenerate = true)
-    var uid : Int = 0
-}
+@Entity(tableName = "challenge_ratings")
+data class XPbyCR(@PrimaryKey @ColumnInfo(name = "id") val id : Int, @ColumnInfo(name = "challenge") val CR: String,
+                  @ColumnInfo(name = "XP") val XP : Int)
