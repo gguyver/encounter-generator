@@ -2,14 +2,12 @@ package com.example.encounter_generator
 
 import android.os.Bundle
 import android.widget.TextView
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.encounter_generator.database.MonsterRoomDatabase
 
 import kotlinx.android.synthetic.main.activity_encounter_display.*
-import kotlinx.android.synthetic.main.content_encounter_display.*
 
 class EncounterDisplayActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -21,6 +19,7 @@ class EncounterDisplayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_encounter_display)
         setSupportActionBar(toolbar)
+        supportActionBar?.title = "Generated Encounter"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val database = MonsterRoomDatabase.getDatabase(this)

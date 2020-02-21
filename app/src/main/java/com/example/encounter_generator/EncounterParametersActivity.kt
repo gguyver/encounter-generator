@@ -21,6 +21,7 @@ class EncounterParametersActivity : AppCompatActivity(), AdapterView.OnItemSelec
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_encounter_parameters)
         setSupportActionBar(ParameterToolbar)
+        supportActionBar?.title = "Encounter Parameters"
 
         val partySizeSpinner : Spinner = findViewById(R.id.PartySizeSpinner)
         ArrayAdapter.createFromResource(this, R.array.average_level_array, android.R.layout.simple_spinner_item).also {

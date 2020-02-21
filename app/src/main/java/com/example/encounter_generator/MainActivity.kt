@@ -8,6 +8,7 @@ import android.view.View
 import androidx.core.app.NavUtils
 import android.view.MenuItem
 import com.example.encounter_generator.database.MonsterRoomDatabase
+import kotlinx.android.synthetic.main.activity_encounter_display.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -55,10 +56,9 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "D&D 5e Encounter Generator"
 
         mVisible = true
-
-        val database = MonsterRoomDatabase.getDatabase(this)
 
         // Set up the user interaction to manually show or hide the system UI.
         fullscreen_content.setOnClickListener { toggle() }
