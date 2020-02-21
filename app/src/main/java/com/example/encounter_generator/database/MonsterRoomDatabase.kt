@@ -13,11 +13,11 @@ import androidx.room.RoomDatabase
 // - xp-by-cr-table
 
 @Database(entities = arrayOf(Threshold::class, Multipliers::class, MonstersXP::class, XPbyCR::class), version = 1, exportSchema = false)
-public abstract class MonsterRoomDatabase : RoomDatabase() {
+abstract class MonsterRoomDatabase : RoomDatabase() {
 
     abstract fun ThresholdDAO() : ThresholdDAO
     abstract fun MultipliersDAO() : MultipliersDAO
-    abstract fun MonstersXPDAO() : MonstersXP
+    abstract fun MonstersXPDAO() : MonstersXPDAO
     abstract fun XPbyCRDAO() : XPbyCRDAO
 
     companion object {
@@ -30,7 +30,7 @@ public abstract class MonsterRoomDatabase : RoomDatabase() {
                 return tempInstance
             }
             synchronized(this) {
-                val instance = Room.databaseBuilder(context.applicationContext, MonsterRoomDatabase::class.java, "monster_database").createFromAsset("app-encounter-data.sql").build()
+                val instance = Room.databaseBuilder(context.applicationContext, MonsterRoomDatabase::class.java, "monster_database").createFromAsset("test.sqlite").allowMainThreadQueries().build()
                 INSTANCE = instance
                 return instance
             }

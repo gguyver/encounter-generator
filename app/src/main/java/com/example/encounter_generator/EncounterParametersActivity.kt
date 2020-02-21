@@ -1,7 +1,7 @@
 package com.example.encounter_generator
 
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -11,18 +11,10 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import kotlinx.android.synthetic.main.activity_encounter_parameters.*
 
-import kotlinx.android.synthetic.main.activity_main.*
-
+const val PARAMETER_NAME = "com.example.encounter_generator.PARAMETERS"
 class EncounterParametersActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
-    val partySizeSpinner : Spinner = findViewById(R.id.PartySizeSpinner)
-    val partyLevelSpinner : Spinner = findViewById(R.id.PartyLevelSpinner)
-    val difficultySpinner : Spinner = findViewById(R.id.DifficultySpinner)
-    val encounterSizeSpinner : Spinner = findViewById(R.id.EncounterSizeSpinner)
-
     var currentParameters : EncounterParameters = EncounterParameters(1, 1, "Medium", 1)
-
-    var canProceed : Boolean = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,9 +46,14 @@ class EncounterParametersActivity : AppCompatActivity(), AdapterView.OnItemSelec
             encounterSizeSpinner.adapter = adapter
         }
 
+        partySizeSpinner.onItemSelectedListener = this
+        partyLevelSpinner.onItemSelectedListener = this
+        difficultySpinner.onItemSelectedListener = this
+        encounterSizeSpinner.onItemSelectedListener = this
 
     }
 
+    // override to set what happens when option selected for spinners
     override fun onItemSelected(parent : AdapterView<*>, view : View, pos : Int, id : Long) {
         when (parent.id) {
             R.id.PartySizeSpinner -> currentParameters.setPartySize(parent.getItemAtPosition(pos).toString())
@@ -67,7 +64,14 @@ class EncounterParametersActivity : AppCompatActivity(), AdapterView.OnItemSelec
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
-        canProceed = false
+    }
+
+    // Called when use taps "Generate Encounter"
+    fun buildEncounterWithParameters(view : View) {
+        val intent = Intent(this, EncounterDisplayActivity::class.java).apply {
+            putExtra(PARAMETER_NAME, currentParameters)
+        }
+        startActivity(intent)
     }
 
 

@@ -7,4 +7,7 @@
     <string name="feeling_lucky">I\'m Feeling Lucky</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_encounter_display">EncounterDisplayActivity</string>
+
+    <string name="title_activity_test">test</string>
+    <string name="dummy_button">Dummy Button</string>
 </resources>

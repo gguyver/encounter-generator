@@ -27,6 +27,7 @@
         android:layout_marginEnd="115dp"
         android:layout_marginBottom="168dp"
         android:background="@color/colorPrimary"
+        android:onClick="buildEncounterWithParameters"
         android:text="Generate Encounter"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +62,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="47dp"
         android:entries="@array/encounter_challenge_array"
-        app:layout_constraintStart_toEndOf="@+id/Encounter DifficultyText"
+        app:layout_constraintStart_toEndOf="@+id/EncounterDifficultyText"
         app:layout_constraintTop_toBottomOf="@+id/PartyLevelSpinner" />
 
     <Spinner
@@ -73,7 +74,7 @@
         android:entries="@array/average_level_array"
         app:layout_constraintEnd_toStartOf="@+id/EncounterSizeCheckBox"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/encounter DifficultyText" />
+        app:layout_constraintTop_toBottomOf="@+id/encounterDifficultyText" />
 
     <TextView
         android:id="@+id/textView"
@@ -98,13 +99,13 @@
         android:text="Average Party Level"
         android:textAlignment="center"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/Encounter DifficultyText"
+        app:layout_constraintBottom_toTopOf="@+id/EncounterDifficultyText"
         app:layout_constraintEnd_toStartOf="@+id/PartyLevelSpinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/Encounter DifficultyText"
+        android:id="@+id/EncounterDifficultyText"
         android:layout_width="212dp"
         android:layout_height="23dp"
         android:layout_marginStart="32dp"
@@ -118,7 +119,7 @@
         app:layout_constraintTop_toBottomOf="@+id/AverageLevelText" />
 
     <TextView
-        android:id="@+id/encounter DifficultyText"
+        android:id="@+id/encounterDifficultyText"
         android:layout_width="212dp"
         android:layout_height="23dp"
         android:layout_marginStart="100dp"
@@ -140,5 +141,5 @@
         android:text="Fixed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/EncounterSizeSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/encounter DifficultyText" />
+        app:layout_constraintTop_toBottomOf="@+id/encounterDifficultyText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
