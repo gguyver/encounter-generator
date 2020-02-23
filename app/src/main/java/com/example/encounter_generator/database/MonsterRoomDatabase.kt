@@ -12,7 +12,7 @@ import androidx.room.RoomDatabase
 // - monster-xp-table (monsters by XP)
 // - xp-by-cr-table
 
-@Database(entities = arrayOf(Threshold::class, Multipliers::class, MonstersXP::class, XPbyCR::class), version = 1, exportSchema = true)
+@Database(entities = arrayOf(Threshold::class, Multipliers::class, MonstersXP::class, XPbyCR::class), version = 2, exportSchema = true)
 abstract class MonsterRoomDatabase : RoomDatabase() {
 
     abstract fun ThresholdDAO() : ThresholdDAO
@@ -30,7 +30,7 @@ abstract class MonsterRoomDatabase : RoomDatabase() {
                 return tempInstance
             }
             synchronized(this) {
-                val instance = Room.databaseBuilder(context.applicationContext, MonsterRoomDatabase::class.java, "monster_database").createFromAsset("app-encounter-data.db").allowMainThreadQueries().build()
+                val instance = Room.databaseBuilder(context.applicationContext, MonsterRoomDatabase::class.java, "monster_database").createFromAsset("app-encounter-data.db").allowMainThreadQueries().fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 return instance
             }

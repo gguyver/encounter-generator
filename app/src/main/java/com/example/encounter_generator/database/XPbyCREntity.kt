@@ -6,4 +6,4 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "challenge_ratings")
 data class XPbyCR(@PrimaryKey @ColumnInfo(name = "id") val id : Int, @ColumnInfo(name = "challenge") val CR: String,
-                  @ColumnInfo(name = "XP") val XP : Double)
+                  @ColumnInfo(name = "XP") val XP : Int)

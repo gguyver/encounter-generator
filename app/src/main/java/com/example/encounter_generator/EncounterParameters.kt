@@ -121,4 +121,13 @@ data class EncounterParameters(
         if(partySize > 6) baseMultiplier = data.getNextMultiplier(baseMultiplier)
         return baseMultiplier
     }
+
+    fun randomize() {
+        // Randomises the parameters for use with "I'm Feeling Lucky" button on Main Activity
+        partySize = Random.nextInt(1, 10) // more realistic values
+        partyLevel = Random.nextInt(1, 20)
+        encounterSize = Random.nextInt(1, 10) // more realistic
+        val diffs : List<String> = listOf("Easy", "Medium", "Hard", "Deadly")
+        difficulty = diffs[Random.nextInt(0, 3)]
+    }
 }

@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
+
 class MainActivity : AppCompatActivity() {
 
     private val mHideHandler = Handler()
@@ -130,6 +131,15 @@ class MainActivity : AppCompatActivity() {
 
     fun buildEncounter(view : View) {
         val intent = Intent(this, EncounterParametersActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun feelingLucky(view : View) {
+        val randomEncounter = EncounterParameters(1, 1, "Medium", 1)
+        randomEncounter.randomize()
+        val intent = Intent(this, EncounterDisplayActivity::class.java).apply {
+            putExtra(PARAMETER_NAME, randomEncounter)
+        }
         startActivity(intent)
     }
 
